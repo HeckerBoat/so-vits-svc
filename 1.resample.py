@@ -70,6 +70,8 @@ def process_all_speakers():
                 for _ in tqdm(concurrent.futures.as_completed(futures), total=len(futures)):
                     pass
 """
+
+
 # multi process
 
 
@@ -80,7 +82,8 @@ def process_all_speakers():
             spk_dir = os.path.join(args.in_dir, speaker)
             if os.path.isdir(spk_dir):
                 print(spk_dir)
-                futures = [executor.submit(process, (spk_dir, i, args)) for i in os.listdir(spk_dir) if i.endswith("wav")]
+                futures = [executor.submit(process, (spk_dir, i, args)) for i in os.listdir(spk_dir) if
+                           i.endswith("wav")]
                 for _ in track(concurrent.futures.as_completed(futures), total=len(futures), description="resampling:"):
                     pass
 
@@ -90,7 +93,8 @@ if __name__ == "__main__":
     parser.add_argument("--sr2", type=int, default=44100, help="sampling rate")
     parser.add_argument("--in_dir", type=str, default="./dataset_raw", help="path to source dir")
     parser.add_argument("--out_dir2", type=str, default="./dataset/44k", help="path to target dir")
-    parser.add_argument("--skip_loudnorm", action="store_true", help="Skip loudness matching if you have done it")
+    parser.add_argument("--skip_loudnorm", action="store_true", default=True,
+                        help="Skip loudness matching if you have done it")
     args = parser.parse_args()
 
     print(f"CPU count: {cpu_count()}")

@@ -369,7 +369,7 @@ python train_diff.py -c configs/diffusion.yaml
 
 ```shell
 # 例
-python inference_main.py -m "logs/44k/G_30400.pth" -c "configs/config.json" -n "君の知らない物語-src.wav" -t 0 -s "nen"
+python inference_main.py -m "logs/44k/G_30400.pth" -c "configs/config.json" -n "liangliang.wav" -t 0 -s "dzq"
 ```
 
 必填项部分：
