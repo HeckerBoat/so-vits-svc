@@ -1,0 +1,20 @@
+python 1.resample.py
+python 2.preprocess_flist_config.py
+python 3.preprocess_hubert_f0.py
+python 4.train.py -c configs/config.json -m 44k
+python 5.train_diff.py -c configs/diffusion.yaml
+python 6.train_index.py -c configs/config.json
+python cluster/7.train_cluster.py --gpu
+python 8.inference_main.py
+python 9.compress_model.py
+
+
+python resample.py
+python preprocess_flist_config.py
+python preprocess_hubert_f0.py
+python train.py -c configs/config.json -m 44k
+python train_diff.py -c configs/diffusion.yaml
+python train_index.py -c configs/config.json
+python cluster/train_cluster.py --gpu
+python inference_main.py
+python compress_model.py
